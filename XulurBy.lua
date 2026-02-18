@@ -1,15 +1,10 @@
---[[ BRAINROT HUB by Xulur - SCRIPT UTAMA ]]
+--[[ BRAINROT HUB by Xulur - MAIN SCRIPT ]]
 
--- Panggil library Chloe X
-loadstring(game:HttpGet("https://raw.githubusercontent.com/szxxcc956/XulurBy/main/Xulur.lua"))()
-
--- Tunggu library selesai load
+-- Load library Chloe X (file Xulur)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/szxxcc956/XulurBy/main/Xulur"))()
 wait(1)
 
--- Setup variable
-local P = game.Players.LocalPlayer
-
--- Create window pake Chloe X
+-- Create window
 local Window = Chloex:Window({
     Title = "🧠 BRAINROT HUB",
     Footer = "by Xulur",
@@ -21,16 +16,12 @@ local Window = Chloex:Window({
 -- HOME TAB
 local HomeTab = Window:CreateTab("🏠 HOME", "rbxassetid://107005941750079")
 local HomeSection = HomeTab:CreateSection("Info")
-HomeSection:AddButton("👋 Halo " .. P.Name, function() end)
+HomeSection:AddButton("👋 Halo " .. game.Players.LocalPlayer.Name, function() end)
 
 -- FARM TAB
 local FarmTab = Window:CreateTab("⚙️ FARM", "rbxassetid://70386228443175")
 local FarmSection = FarmTab:CreateSection("Auto Farm")
 FarmSection:AddToggle("🚀 Auto Farm", false, function(v) print("Farm:", v) end)
-FarmSection:AddToggle("🎯 Target Celestial", true, function(v) print("Target:", v) end)
-FarmSection:AddToggle("⚡ Speed", false, function(v) print("Speed:", v) end)
-FarmSection:AddToggle("🕳️ Underground", false, function(v) print("Under:", v) end)
-FarmSection:AddButton("🔄 Test", function() print("Test") end)
 
 -- ESP TAB
 local ESPTab = Window:CreateTab("👁️ ESP", "rbxassetid://14321059114")
@@ -43,13 +34,7 @@ local WallSection = WallTab:CreateSection("Remove")
 WallSection:AddToggle("Remove Walls", false, function(v) print("Walls:", v) end)
 WallSection:AddToggle("Remove VIP", false, function(v) print("VIP:", v) end)
 
--- INFO TAB
-local InfoTab = Window:CreateTab("📊 INFO", "rbxassetid://17510196486")
-local InfoSection = InfoTab:CreateSection("Game")
-InfoSection:AddButton("Escape Tsunami", function() end)
-InfoSection:AddButton("Game ID: 131623223084840", function() end)
-
 -- Notifikasi
 chloex("BRAINROT HUB Loaded!", 4, Color3.fromRGB(0,255,0), "Sukses", "by Xulur")
 
-print("✅ SCRIPT UTAMA JALAN")
+print("✅ MAIN SCRIPT LOADED")
