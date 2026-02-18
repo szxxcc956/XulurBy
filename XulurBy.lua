@@ -1,7 +1,7 @@
- --[[ CHLOE X UI by Xulur - KOSONG (Tinggal Template) ]]
+--[[ BRAINROT HUB by Xulur ]]
 
--- Load Library Chloe X
-loadstring(game:HttpGet("https://raw.githubusercontent.com/TesterX14/XXXX/refs/heads/main/Library"))()
+-- Panggil library Chloe dari repo library
+loadstring(game:HttpGet("https://raw.githubusercontent.com/szxxcc956/library/main/ChloeLib.lua"))()
 
 -- Tunggu library selesai load
 wait(1)
@@ -9,55 +9,68 @@ wait(1)
 -- Setup variable
 local P = game.Players.LocalPlayer
 
--- Create main window (Chloe X style)
-local Window = Library:CreateWindow({
+-- Create window pake Chloe X
+local Window = Chloex:Window({
     Title = "🧠 BRAINROT HUB",
-    Subtitle = "by Xulur",
-    Size = UDim2.new(0, 700, 0, 450),
-    Position = UDim2.new(0.5, -350, 0.5, -225),
-    Color = Color3.fromRGB(255, 0, 255) -- Pink khas Chloe X
+    Footer = "by Xulur",
+    Color = Color3.fromRGB(255, 0, 255), -- Pink khas Chloe
+    ["Tab Width"] = 120,
+    Version = 1
 })
 
---== CREATE TABS (KOSONG) ==--
+-- Buat tab HOME
+local HomeTab = Window:CreateTab("🏠 HOME", "rbxassetid://107005941750079")
+local HomeSection = HomeTab:CreateSection("Info")
+HomeSection:AddButton("👋 Halo " .. P.Name, function() end)
 
--- HOME TAB
-local HomeTab = Window:CreateTab({
-    Name = "🏠 HOME",
-    Icon = "rbxassetid://107005941750079"
-})
-local HomeSection = HomeTab:CreateSection("Home")
--- (Kosong, tinggal diisi)
+-- Buat tab FARM
+local FarmTab = Window:CreateTab("⚙️ FARM", "rbxassetid://70386228443175")
+local FarmSection = FarmTab:CreateSection("Auto Farm Settings")
 
--- FARM TAB
-local FarmTab = Window:CreateTab({
-    Name = "⚙️ FARM",
-    Icon = "rbxassetid://70386228443175"
-})
-local FarmSection = FarmTab:CreateSection("Auto Farm")
--- (Kosong, tinggal diisi)
+-- Toggle auto farm
+FarmSection:AddToggle("🚀 Auto Farm", false, function(value)
+    print("Auto Farm:", value)
+end)
 
--- ESP TAB
-local ESPTab = Window:CreateTab({
-    Name = "👁️ ESP",
-    Icon = "rbxassetid://14321059114"
-})
+-- Toggle target
+FarmSection:AddToggle("🎯 Target Celestial", true, function(value)
+    print("Target:", value)
+end)
+
+-- Toggle speed
+FarmSection:AddToggle("⚡ Speed Boost", false, function(value)
+    print("Speed:", value)
+end)
+
+-- Toggle underground
+FarmSection:AddToggle("🕳️ Underground Mode", false, function(value)
+    print("Underground:", value)
+end)
+
+-- Button test
+FarmSection:AddButton("🔄 Test Button", function()
+    print("Button clicked")
+    chloex("Button clicked!", 3, Color3.fromRGB(0,255,0), "Sukses", "Test")
+end)
+
+-- Buat tab ESP
+local ESPTab = Window:CreateTab("👁️ ESP", "rbxassetid://14321059114")
 local ESPSection = ESPTab:CreateSection("ESP Settings")
--- (Kosong, tinggal diisi)
+ESPSection:AddToggle("Enable ESP", false, function(v) print("ESP:", v) end)
 
--- WALL TAB
-local WallTab = Window:CreateTab({
-    Name = "🧱 WALLS",
-    Icon = "rbxassetid://8601111810"
-})
+-- Buat tab WALL
+local WallTab = Window:CreateTab("🧱 WALLS", "rbxassetid://8601111810")
 local WallSection = WallTab:CreateSection("Remove Obstacles")
--- (Kosong, tinggal diisi)
+WallSection:AddToggle("Remove Walls", false, function(v) print("Walls:", v) end)
+WallSection:AddToggle("Remove VIP", false, function(v) print("VIP:", v) end)
 
--- INFO TAB
-local InfoTab = Window:CreateTab({
-    Name = "📊 INFO",
-    Icon = "rbxassetid://17510196486"
-})
+-- Buat tab INFO
+local InfoTab = Window:CreateTab("📊 INFO", "rbxassetid://17510196486")
 local InfoSection = InfoTab:CreateSection("Game Info")
--- (Kosong, tinggal diisi)
+InfoSection:AddButton("Escape Tsunami For Brainrots", function() end)
+InfoSection:AddButton("Game ID: 131623223084840", function() end)
 
-print("✅ CHLOE X UI LOADED - READY TO FILL")
+-- Notifikasi awal
+chloex("BRAINROT HUB Loaded!", 4, Color3.fromRGB(0,255,0), "Sukses", "by Xulur")
+
+print("✅ BRAINROT HUB - CHLOE EDITION LOADED")
